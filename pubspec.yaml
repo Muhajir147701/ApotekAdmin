@@ -30,18 +30,16 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   cupertino_icons: ^1.0.2
+  faker: ^2.0.0
   flutter:
     sdk: flutter
   get: ^4.6.5
+  http: ^0.13.5
+  lottie: ^2.0.0
+  url_launcher: ^6.1.7
   video_player: ^2.4.7
 
 dev_dependencies:
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
@@ -57,8 +55,9 @@ flutter:
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
-      - assets/image/
-      - assets/image/grouplogo.png
+    - assets/image/
+    - assets/lottie/
+    - assets/image/grouplogo.png
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

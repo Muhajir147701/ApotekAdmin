@@ -5,7 +5,7 @@ class AkunSayaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
       children: [
         //awal
         Stack(children: <Widget>[
@@ -49,20 +49,31 @@ class AkunSayaPage extends StatelessWidget {
           height: 20,
         ),
         Container(
-          width: double.infinity,
-          height: 85,
-          color: Colors.greenAccent,
+          margin: const EdgeInsets.all(20),
+          padding: const EdgeInsets.all(10),
+          width: 90,
+          height: 90,
+          decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+              color: Colors.amber,
+              image: DecorationImage(
+                  image: AssetImage('assets/image/grouplogo.png'))),
         ),
         const SizedBox(
           height: 40,
         ),
         Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
+          margin: const EdgeInsets.all(20),
+          decoration: BoxDecoration(border: Border.all()),
+          padding: const EdgeInsets.all(20),
           child: Column(
             children: const <Widget>[
               TextField(
-                  decoration: InputDecoration(
-                      border: OutlineInputBorder(), labelText: 'FullName :')),
+                decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'FullName :',
+                    suffixIcon: Icon(Icons.person)),
+              ),
               SizedBox(
                 height: 20,
               ),

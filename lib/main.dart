@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/riwayat', page: (() => const RiwayatTransaksi())),
         GetPage(name: '/video', page: (() => const Video())),
         GetPage(name: '/tambah', page: (() => GetObx())),
+        GetPage(name: '/api', page: (() => ApiUrl())),
       ],
       debugShowCheckedModeBanner: false,
       // home: LoginPage(),

@@ -40,6 +40,11 @@ class FeedPage extends StatelessWidget {
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                   )),
+              ElevatedButton(
+                  onPressed: (() {
+                    Get.toNamed('api');
+                  }),
+                  child: const Text('keApi'))
             ],
           )),
         ],

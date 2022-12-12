@@ -12,13 +12,6 @@ class _HomeScreenState extends State<HomeScreen> {
   int bottomNavbarIndex = 0;
   late PageController pageController;
 
-  // void _changeSelectedNavbar(int index) {
-  //   setState(() {
-  //     bottomNavbarIndex = index;
-  //     // pageController = PageController(initialPage: _selectedNavbar);
-  //   });
-  // }
-
   @override
   void initState() {
     super.initState();
@@ -30,28 +23,32 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SizedBox(
-        width: 600,
-        child: Stack(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            PageView(
-              controller: pageController,
-              onPageChanged: (int index) {
-                setState(() {
-                  bottomNavbarIndex = index;
-                });
-              },
-              children: const <Widget>[
-                HomePage(),
-                FeedPage(),
-                KeranjangBelanjaPage(),
-                AkunSayaPage()
-              ],
-            ),
-          ],
-        ),
+      body: Stack(
+        // mainAxisAlignment: MainAxisAlignment.center,
+        // crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            color: const Color(0xFFD9D9D9),
+          ),
+          SafeArea(
+              child: Container(
+            color: const Color(0xFFF6F7F9),
+          )),
+          PageView(
+            controller: pageController,
+            onPageChanged: (int index) {
+              setState(() {
+                bottomNavbarIndex = index;
+              });
+            },
+            children: <Widget>[
+              HomePage(),
+              const FeedPage(),
+              const KeranjangBelanjaPage(),
+              const AkunSayaPage()
+            ],
+          ),
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[

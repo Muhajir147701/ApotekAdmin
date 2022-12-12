@@ -5,6 +5,7 @@ class DetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Obat obat = Get.arguments;
     return Scaffold(
         body: Column(
       children: [
@@ -35,36 +36,59 @@ class DetailPage extends StatelessWidget {
                     padding: EdgeInsets.only(
                       top: 20,
                     ),
-                    child: Center(
-                      child: Text(
-                        'Detail Page',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    )),
+                    child: Center(child: Text('data'))),
               ],
             )),
             //card
           ],
         ),
         Container(
-          height: 185,
+          height: 300,
           width: double.infinity,
           margin: const EdgeInsets.symmetric(vertical: 25),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: const Color(0xFF382A74),
           ),
+          child: Column(
+            children: [
+              Text(
+                obat.obatName!,
+
+                ///disini penerima
+                style: const TextStyle(fontSize: 30, color: Colors.white),
+              ),
+              Row(
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    padding: const EdgeInsets.all(15),
+                    child: Image.network(obat.obatPicture!),
+                  ),
+                  Column(
+                    children: [
+                      Text("harga ${obat.harga}"),
+                      SizedBox(width: 200, child: Text("${obat.deskripsi}"))
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
         Align(
           alignment: Alignment.bottomCenter,
-          child: Container(
-            height: 46,
-            width: 46,
-            padding: const EdgeInsets.only(bottom: 20),
-            color: Colors.amber,
+          child: ElevatedButton(
+            onPressed: () {
+              // fungsi.belanja.add(obat);
+              barang.add(obat);
+              i++;
+              Get.back();
+            },
+            child: const Text('Pesan'),
           ),
-        )
+        ),
       ],
     ));
   }

@@ -1,5 +1,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.get_x">
+    <queries>
+    <intent>
+    <action android:name="android.inten.action.VIEW" />
+    <data android:scheme="tel" />
+    </intent>
+    
+    
+    </queries>
+
+
+
    <uses-permission android:name="android.permission.INTERNET"/>
    <application
         android:label="get_x"

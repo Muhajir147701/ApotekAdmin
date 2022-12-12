@@ -13,16 +13,17 @@ class SplashPage extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              margin: const EdgeInsets.symmetric(horizontal: 60),
-              width: 200,
-              height: 200,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: Colors.amber),
-              child: const Image(
-                image: AssetImage('assets/image/grouplogo.png'),
-              ),
-            ),
+                margin: const EdgeInsets.symmetric(horizontal: 60),
+                width: 200,
+                height: 200,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: Colors.amber),
+                child:
+                    // const Image(
+                    //   image: AssetImage('assets/image/grouplogo.png'),
+                    // ),
+                    Lottie.asset("assets/lottie/madicine.json")),
           ),
           const SizedBox(
             height: 40,

@@ -1,6 +1,20 @@
+// import 'dart:convert';
+import 'dart:math';
+
+import 'package:faker/faker.dart';
+// import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter/rendering.dart';
+// import 'package:get_x/shared/shared.dart';
+import 'package:lottie/lottie.dart';
+import 'package:url_launcher/url_launcher.dart';
+// import '../controller/controller.dart';
+
 import 'package:get/get.dart';
 import 'package:get_x/controller/controller.dart';
+import 'package:get_x/model/models.dart';
+import 'package:get_x/shared/shared.dart';
+// import 'package:http/http.dart' as http;
 
 part 'splash_page.dart';
 part 'home_page.dart';
@@ -12,3 +26,4 @@ part 'lokasi_page.dart';
 part 'keranjang_belanja_page.dart';
 part 'riwayat_transaksi_page.dart';
 part 'getobx.dart';
+part 'api_url.dart';
