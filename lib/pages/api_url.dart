@@ -1,12 +1,11 @@
 part of 'pages.dart';
 
 class ApiUrl extends StatelessWidget {
-  ApiUrl({super.key});
-
-  var obatAll = Get.put(ObatController());
+  const ApiUrl({super.key});
 
   @override
   Widget build(BuildContext context) {
+    var obatAll = Get.put(ObatController());
     return Scaffold(
       appBar: AppBar(
         title: const Text('Api Url'),
@@ -14,9 +13,14 @@ class ApiUrl extends StatelessWidget {
           Obx((() => Text("$i"))),
           GestureDetector(
               onTap: () {
-                Get.toNamed('/home');
+                Get.toNamed('/home', arguments: 2);
               },
-              child: const Icon(Icons.shop_two_rounded))
+              child: Container(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: const Icon(
+                    Icons.shopping_basket,
+                    color: Colors.amber,
+                  )))
         ],
       ),
       body: FutureBuilder<List<Obat>>(

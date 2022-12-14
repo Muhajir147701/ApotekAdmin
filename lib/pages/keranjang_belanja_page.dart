@@ -12,11 +12,15 @@ class KeranjangBelanjaPage extends StatelessWidget {
     }
     return Column(
       children: [
+        const SafeArea(
+            child: SizedBox(
+          height: 20,
+        )),
         Container(
           alignment: Alignment.center,
           child: const Text(
             'Keranjang Belanja',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
         const SizedBox(
@@ -81,11 +85,17 @@ class KeranjangBelanjaPage extends StatelessWidget {
     for (int i = 0; i < barang.length; i++) {
       order.add(barang[i].obatName.toString());
     }
+    var box = GetStorage();
+    String nama = box.read('name');
+    String nomorhp = box.read('whatsup_number');
 
-    Uri url = Uri.parse(
-        // 'https://wa.me/6285342462314/?text=${order.map((e) => e)}\n Total Harga =Rp.$total,-'
-        "whatsapp://send?pone=+6285342462314&text=${order.map((e) => e)}\n Total Harga = Rp. $total");
-    if (!await launchUrl(url)) {
+    String url =
+        'https://wa.me/+6285342462314?text=$nama\n\n,$nomorhp\n\n ${order.map((e) => "$e\n\n")}\n *Total Harga =Rp.$total*,';
+    if (!await launchUrlString(url,
+        mode: LaunchMode.externalNonBrowserApplication,
+        webViewConfiguration: const WebViewConfiguration(
+          enableJavaScript: false,
+        ))) {
       throw 'Could not launch $url';
     }
   }

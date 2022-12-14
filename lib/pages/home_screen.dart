@@ -1,8 +1,8 @@
 part of 'pages.dart';
 
 class HomeScreen extends StatefulWidget {
-  final int bottomNavBarIndex;
-  const HomeScreen({this.bottomNavBarIndex = 0, super.key});
+  int? bottomNavBarIndex = Get.arguments;
+  HomeScreen({super.key});
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     super.initState();
 
-    bottomNavbarIndex = widget.bottomNavBarIndex;
+    bottomNavbarIndex = widget.bottomNavBarIndex!;
     pageController = PageController(initialPage: bottomNavbarIndex);
   }
 

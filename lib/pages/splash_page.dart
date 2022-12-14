@@ -43,7 +43,7 @@ class SplashPage extends StatelessWidget {
           Center(
               child: ElevatedButton(
                   onPressed: () {
-                    Get.toNamed('/home');
+                    Get.offNamed('/login');
                   },
                   child: const Text('Go Home'))),
         ],

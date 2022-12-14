@@ -4,19 +4,22 @@ import 'dart:math';
 import 'package:faker/faker.dart';
 // import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-// import 'package:flutter/rendering.dart';
-// import 'package:get_x/shared/shared.dart';
+import 'package:get_storage/get_storage.dart';
+
+// import 'package:url_launcher/url_launcher.dart';
 import 'package:lottie/lottie.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 // import '../controller/controller.dart';
 
 import 'package:get/get.dart';
 import 'package:get_x/controller/controller.dart';
 import 'package:get_x/model/models.dart';
 import 'package:get_x/shared/shared.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 // import 'package:http/http.dart' as http;
 
 part 'splash_page.dart';
+part 'login_page.dart';
 part 'home_page.dart';
 part 'home_screen.dart';
 part 'feed_page.dart';

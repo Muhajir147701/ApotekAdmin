@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get_x/pages/pages.dart';
 import 'package:get_x/pages/widget/widets.dart';
+import 'package:get_storage/get_storage.dart';
 
-import 'login_page.dart';
+void main() async {
+  await GetStorage.init();
 
-void main() {
   runApp(const MyApp());
 }
 
@@ -14,14 +15,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var box = GetStorage();
     return GetMaterialApp(
       initialRoute: '/',
       getPages: [
-        GetPage(name: '/', page: (() => const LoginPage())),
+        GetPage(
+            name: '/',
+            page: (() => (box.read('name') == null)
+                ? const SplashPage()
+                : HomeScreen())),
 
         //HalamanApotek
-        GetPage(name: '/splash', page: (() => const SplashPage())),
-        GetPage(name: '/home', page: (() => const HomeScreen())),
+        GetPage(name: '/login', page: (() => const LoginPage())),
+        GetPage(name: '/home', page: (() => HomeScreen())),
         GetPage(name: '/feed', page: (() => const FeedPage())),
         GetPage(name: '/akunsaya', page: (() => const AkunSayaPage())),
         GetPage(name: '/detail', page: (() => const DetailPage())),
@@ -30,7 +36,7 @@ class MyApp extends StatelessWidget {
         GetPage(name: '/riwayat', page: (() => const RiwayatTransaksi())),
         GetPage(name: '/video', page: (() => const Video())),
         GetPage(name: '/tambah', page: (() => GetObx())),
-        GetPage(name: '/api', page: (() => ApiUrl())),
+        GetPage(name: '/api', page: (() => const ApiUrl())),
       ],
       debugShowCheckedModeBanner: false,
       // home: LoginPage(),

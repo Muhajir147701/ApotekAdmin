@@ -20,7 +20,7 @@ class GetObx extends StatelessWidget {
         appBar: AppBar(
           title: const Text('List Produck'),
           actions: [
-            Obx((() => Text("${barang.length}"))),
+            Obx((() => Text("$i"))),
             GestureDetector(
                 onTap: () {
                   Get.toNamed('home');

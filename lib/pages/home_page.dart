@@ -6,16 +6,18 @@ class HomePage extends StatelessWidget {
   HomePage({super.key});
   Faker faker = Faker();
   final obat = Get.put(ObatController());
+  var box = GetStorage();
 
   @override
   Widget build(BuildContext context) {
-    List<Obat> dummyData = List.generate(
-        100,
-        (index) => Obat(
-            obatName: faker.food.restaurant(),
-            obatPicture: "https://picsum.photos/id/${870 + index}/200",
-            harga: 10000 + Random().nextInt(100000),
-            deskripsi: faker.lorem.sentence()));
+    // List<Obat> dummyData = List.generate(
+    //     100,
+    //     (index) => Obat(
+    //         obatName: faker.food.restaurant(),
+    //         obatPicture: "https://picsum.photos/id/${870 + index}/200",
+    //         harga: 10000 + Random().nextInt(100000),
+    //         deskripsi: faker.lorem.sentence()));
+
     return GetBuilder<ObatController>(
         builder: ((obatController) => ListView(children: [
               Stack(
@@ -33,18 +35,18 @@ class HomePage extends StatelessWidget {
                           child: Row(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const <Widget>[
-                              CircleAvatar(
+                            children: <Widget>[
+                              const CircleAvatar(
                                 radius: 30,
                                 backgroundImage:
                                     AssetImage('assets/image/grouplogo.png'),
                               ),
                               Text(
-                                "Muhammad",
-                                style: TextStyle(
+                                box.read('name'),
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white),
                               ),
-                              Icon(
+                              const Icon(
                                 Icons.shop_2,
                                 color: Colors.white,
                               )
@@ -88,7 +90,7 @@ class HomePage extends StatelessWidget {
                               children: [
                                 GestureDetector(
                                     onTap: () {
-                                      Get.toNamed('/tambah');
+                                      Get.toNamed('/api');
                                     },
                                     child: Kategory('paracetamol', 151)),
                                 const SizedBox(
@@ -96,7 +98,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 GestureDetector(
                                     onTap: () {
-                                      Get.toNamed('/tambah');
+                                      Get.toNamed('/api');
                                     },
                                     child: Kategory('Bodrex', 100))
                               ],
@@ -189,58 +191,58 @@ class HomePage extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                color: Colors.amber,
-                child: Column(
-                  children: [
-                    Image.network(dummyData[20].obatPicture!),
-                    Text(dummyData[20].obatName!),
-                  ],
-                ),
-              ),
+              // Container(
+              //   color: Colors.amber,
+              //   child: Column(
+              //     children: [
+              //       Image.network(dummyData[20].obatPicture!),
+              //       Text(dummyData[20].obatName!),
+              //     ],
+              //   ),
+              // ),
 
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed('/splash');
-                  },
-                  child: const Text('Go Splash')),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed("/lokasi");
-                  },
-                  child: const Text('Go Lokasi')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed('/splash');
+              //     },
+              //     child: const Text('Go Splash')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed("/lokasi");
+              //     },
+              //     child: const Text('Go Lokasi')),
 
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed('/riwayat');
-                  },
-                  child: const Text('Go Riwayat Transaksi')),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed('/lokasi');
-                  },
-                  child: const Text('Go Lokasi')),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed('/video',
-                        arguments:
-                            'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4');
-                  },
-                  child: const Text('Video')),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed('/video',
-                        arguments:
-                            'https://drive.google.com/file/d/1odtOKqvTwY1_CWWI_7pAT1R9nc6VsARu/view?usp=sharing');
-                  },
-                  child: const Text('youtube')),
-              ElevatedButton(
-                  onPressed: () {
-                    Get.toNamed(
-                      '/tambah',
-                    );
-                  },
-                  child: const Text('tambah')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed('/riwayat');
+              //     },
+              //     child: const Text('Go Riwayat Transaksi')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed('/lokasi');
+              //     },
+              //     child: const Text('Go Lokasi')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed('/video',
+              //           arguments:
+              //               'https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4');
+              //     },
+              //     child: const Text('Video')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed('/video',
+              //           arguments:
+              //               'https://drive.google.com/file/d/1odtOKqvTwY1_CWWI_7pAT1R9nc6VsARu/view?usp=sharing');
+              //     },
+              //     child: const Text('youtube')),
+              // ElevatedButton(
+              //     onPressed: () {
+              //       Get.toNamed(
+              //         '/tambah',
+              //       );
+              //     },
+              //     child: const Text('tambah')),
 
               //akhir
             ])));

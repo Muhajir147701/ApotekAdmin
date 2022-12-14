@@ -20,6 +20,7 @@ class Obat {
   String? obatName;
   String? obatPicture;
   int? harga;
+  int? qty = 1;
   String? deskripsi;
   dynamic deletedAt;
   DateTime? createdAt;
