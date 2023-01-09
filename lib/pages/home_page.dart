@@ -92,7 +92,10 @@ class HomePage extends StatelessWidget {
                                     onTap: () {
                                       Get.toNamed('/api');
                                     },
-                                    child: Kategory('paracetamol', 151)),
+                                    child: Kategory(
+                                        'paracetamol',
+                                        'assets/image/alat_kesehatan.png',
+                                        151)),
                                 const SizedBox(
                                   width: 20,
                                 ),
@@ -100,7 +103,8 @@ class HomePage extends StatelessWidget {
                                     onTap: () {
                                       Get.toNamed('/api');
                                     },
-                                    child: Kategory('Bodrex', 100))
+                                    child: Kategory('Bodrex',
+                                        'assets/image/FotoObat.png', 151))
                               ],
                             ),
                           ],
@@ -140,6 +144,7 @@ class HomePage extends StatelessWidget {
                                         elevation: 2,
                                         child: Kategory(
                                             obat.bulan[index].toString(),
+                                            'assets/image/penunjang.png',
                                             127)))))
                           ],
                         ),
@@ -165,7 +170,9 @@ class HomePage extends StatelessWidget {
                                     scrollDirection: Axis.horizontal,
                                     itemCount: obat.bulan.length,
                                     itemBuilder: ((context, index) => Kategory(
-                                        obat.bulan[index].toString(), 120))))
+                                        obat.bulan[index].toString(),
+                                        'assets/image/alcohol.png',
+                                        120))))
                           ],
                         ),
                       ),
@@ -251,9 +258,10 @@ class HomePage extends StatelessWidget {
 
 class Kategory extends StatelessWidget {
   String namaObat = '';
+  String image;
   double lebar;
 
-  Kategory(this.namaObat, this.lebar, {super.key});
+  Kategory(this.namaObat, this.image, this.lebar, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -262,8 +270,7 @@ class Kategory extends StatelessWidget {
       height: 129,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(20),
-          image: const DecorationImage(
-              image: AssetImage('assets/image/FotoObat.png'))),
+          image: DecorationImage(image: AssetImage(image))),
       child: Column(
         children: [
           const SizedBox(

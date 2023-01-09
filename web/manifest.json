@@ -1,6 +1,6 @@
 {
-    "name": "get_x",
-    "short_name": "get_x",
+    "name": "admin_apotek",
+    "short_name": "admin_apotek",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

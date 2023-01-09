@@ -1,4 +1,4 @@
-package com.example.get_x
+package com.example.admin_apotek
 
 import io.flutter.embedding.android.FlutterActivity
 

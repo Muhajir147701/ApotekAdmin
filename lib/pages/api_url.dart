@@ -12,6 +12,12 @@ class ApiUrl extends StatelessWidget {
         actions: [
           Obx((() => Text("$i"))),
           GestureDetector(
+            onTap: () {
+              Get.offNamed('/add');
+            },
+            child: const Icon(Icons.add),
+          ),
+          GestureDetector(
               onTap: () {
                 Get.toNamed('/home', arguments: 2);
               },
@@ -37,7 +43,7 @@ class ApiUrl extends StatelessWidget {
                   Obat obat = snapshot.data![index];
                   return ListTile(
                     onTap: () {
-                      Get.toNamed('/detail', arguments: obat);
+                      Get.offNamed('/edit', arguments: obat);
                     },
                     leading: CircleAvatar(
                       backgroundImage:

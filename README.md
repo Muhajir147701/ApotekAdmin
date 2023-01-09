@@ -1,4 +1,4 @@
-# get_x
+# admin_apotek
 
 A new Flutter project.
 
